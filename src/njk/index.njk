@@ -1,21 +1,20 @@
 {% extends '_layouts/base.njk' %}
 
-{% block page_title %}New index page title{% endblock %}
+{% block page_title %}Ship's Log{% endblock %}
 
 {% block page_description %}The search description for this page goes here.{% endblock %}
 
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col">
-      <h1>Main headline</h1>
-      <p>This is a <a href="detail-entry-example.html">link to a blog entry example</a> which shows a simple detail entry page example. It uses the "data-entry.njk" layout.</p>
-      <p>This is a <a href="detail-book-shipping-news.html">link to a book page example</a> which uses a more complex detail layout (detail-book.njk) where data is pulled into the layout and the page calls for a specific row in the data.</p>
-      <ul> 
-        {% for book in data.books %}
-          <li>{{ book.title }}, {{ book.author }}</li>
-        {% endfor %}
-     </ul>
+    <div class="col-sm-8 offset-sm-2">
+      <h1>A Pirate's Day in the Life</h1>
+      <p>This is a blog that details the adventures of a pirate ship at sea.</p>
+     {% for entry in data.entries %}
+      <h3 class="entry-headline"><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+      <p class="entry-date">{{ entry.date }}</p>
+      <hr>
+    {% endfor %}
     </div>
   </div>
 </div>
